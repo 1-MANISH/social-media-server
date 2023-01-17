@@ -30,9 +30,19 @@ const app = express()
 app.use(express.json({limit:'100mb'})) // to pass json  ton body
 app.use(morgan('Common')) // konsii api call kerii hai
 app.use(cookieParser()) // for cookies
+
+let origin = 'http://localhost:3000'
+
+console.log('server - ',process.env.NODE_ENV);
+
+if(process.env.NODE_ENV === 'production'){
+    origin = process.env.CORS_ORIGIN
+}
+
+
 app.use(cors({ // for cors (cors origin resourse sharing)-> frontend & backend on different ip
     credentials:true,
-    origin:process.env.CORS_ORIGIN
+    origin:origin
 }))
 
 
