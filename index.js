@@ -32,7 +32,7 @@ app.use(morgan('Common')) // konsii api call kerii hai
 app.use(cookieParser()) // for cookies
 app.use(cors({ // for cors (cors origin resourse sharing)-> frontend & backend on different ip
     credentials:true,
-    origin:process.enc.CORS_ORIGIN
+    origin:process.env.CORS_ORIGIN
 }))
 
 
